@@ -335,13 +335,7 @@ object VideoCompressor : CoroutineScope by MainScope() {
             resolver.let {
                 //val filePath = (context.applicationInfo.dataDir + File.separator + System.currentTimeMillis())
 
-                val tempDirectoryPath = (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES).path + File.separator + "light_compressor_temp")
-                val tempDirectoryFile = File(tempDirectoryPath)
-                if(!tempDirectoryFile.exists()){
-                    tempDirectoryFile.mkdirs()
-                }
-
-                val filePath = (tempDirectoryPath + File.separator + System.currentTimeMillis())
+                val filePath = (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES).path + File.separator + System.currentTimeMillis())
                 val file = File(filePath)
 
                 resolver.openInputStream(uri)?.use { inputStream ->
