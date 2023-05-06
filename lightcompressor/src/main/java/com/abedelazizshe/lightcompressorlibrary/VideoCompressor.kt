@@ -333,8 +333,10 @@ object VideoCompressor : CoroutineScope by MainScope() {
 
         } catch (e: Exception) {
             resolver.let {
-                val filePath = (context.applicationInfo.dataDir + File.separator
-                        + System.currentTimeMillis())
+                //val filePath = (context.applicationInfo.dataDir + File.separator
+                 //       + System.currentTimeMillis())
+                val filePath = (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES).path + File.separator + "light_compressor_temp" + File.separator + System.currentTimeMillis())
+
                 val file = File(filePath)
 
                 resolver.openInputStream(uri)?.use { inputStream ->
